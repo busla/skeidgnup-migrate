@@ -1,0 +1,9 @@
+name = "Migrate from Skeiðgnúp"
+description = "Module to migrate all content from Skeiðgnúp to Drupal"
+package = "Migration"
+core = 7.x
+dependencies[] = migrate
+#  include the files that contain your Migrate classes
+files[] = skeidgnup_migrate.migrate.inc
+files[] = news.inc
+files[] = skeidgnup_migrate.module
