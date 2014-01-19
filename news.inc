@@ -41,7 +41,8 @@ class SkeidgnupNewsMigration extends SkeidgnupMigration {
     $this->addFieldMapping('field_settings')
          ->arguments(array('source_type' => 'tid'))
          ->defaultValue(5);
-         
+    $this->addFieldMapping('uid')
+         ->defaultValue(3);
         
   }
 }
@@ -76,6 +77,8 @@ class SkeidgnupEventsMigration extends SkeidgnupMigration {
     $this->addFieldMapping('field_category')
          ->arguments(array('source_type' => 'tid'))
          ->defaultValue(6);
+    $this->addFieldMapping('uid')
+         ->defaultValue(3);
         
   }
 }
@@ -101,6 +104,9 @@ class SkeidgnupPagesMigration extends SkeidgnupMigration {
           $this->addFieldMapping('title', 'pageTitle');
           $this->addFieldMapping('field_body', 'pageContent')
                ->arguments(array('format' => 'filtered_html'));
+          $this->addFieldMapping('uid')
+               ->defaultValue(3);
+               
   }
     public function prepareRow($row) {
   // Always include this fragment at the beginning of every prepareRow()
@@ -138,6 +144,9 @@ class SkeidgnupPlacesMigration extends SkeidgnupMigration {
           $this->addFieldMapping('title', 'pageTitle');
           $this->addFieldMapping('field_body', 'pageContent')
                ->arguments(array('format' => 'filtered_html'));
+          $this->addFieldMapping('uid')
+               ->defaultValue(3);
+               
   }
   
   public function prepareRow($row) {
@@ -189,7 +198,10 @@ class SkeidgnupMeetingsMigration extends SkeidgnupMigration {
          ->arguments(array('source_type' => 'tid'));
     $this->addFieldMapping('field_category')
          ->arguments(array('source_type' => 'tid'))
-         ->defaultValue(11);
+         ->defaultValue(10);
+    $this->addFieldMapping('uid')
+         ->defaultValue(3);
+         
         
   }
   
@@ -200,16 +212,16 @@ class SkeidgnupMeetingsMigration extends SkeidgnupMigration {
     
     switch ($row->board) {
     case 1: //Hreppsnefnd
-        $row->new_board = 16;
+        $row->new_board = 15;
         break;
     case 2: // Skólanefnd
-        $row->new_board = 17;
+        $row->new_board = 16;
         break;
     case 3: // Umhverfisnefnd
-        $row->new_board = 18;
+        $row->new_board = 17;
         break;
     case 6: // Aðrar nefndir
-        $row->new_board = 36;
+        $row->new_board = 35;
         break;
     }
 
